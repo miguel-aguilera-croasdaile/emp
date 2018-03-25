@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="results">Find your chefista</h1>
+</div>
+<hr>
+
+<div class="container">
+  <div class="row">
+    <% @chefs.each do |chef| %>
+    <div class="card-index">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-picture" style="background-image: url('<%= cl_image_path chef.photo %>');">
+         <%= link_to "", chef_path(chef), class: "card-link" %>
+       </div>
+       <div class="chef-details row">
+        <%= link_to chef_path(chef) do %>
+        <div class="col-xs-8">
+          <div class="chef-name">
+            <h4> <%= chef.name %> </h4>
+            <p> <%= chef.title %> </p>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="price">
+            <% if chef.price == 0 %>
+              <span><%= "FREE" %></span>
+            <% else %>
+              <span><%= chef.price %>€</span> <span>pp</span>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+
